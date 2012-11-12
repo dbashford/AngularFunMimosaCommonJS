@@ -1,3 +1,5 @@
+This is exactly the same as my [AngularFunMimosa](https://github.com/dbashford/AngularFunMimosa) project, but it leverages the `mimosa-require-commonjs` module, which allows for the codebase to be written in CommonJS format.
+
 # Angular Fun - Mimosa
 *[Original By Cary Landholt](https://github.com/CaryLandholt/AngularFun)*
 
@@ -15,11 +17,11 @@
 
 ## Install Angular Fun
 
-    $ git clone https://github.com/dbashford/AngularFunMimosa.git
-    $ cd AngularFunMimosa
+    $ git clone https://github.com/dbashford/AngularFunMimosaCommonJS.git
+    $ cd AngularFunMimosaCommonJS
     $ npm install
 
-## Run Angular Fun
+## Run It
 
 Run Mimosa's watcher with the server turned on.
 
@@ -41,6 +43,3 @@ or
 Use the `biuld` command and the optimize, minify, removeCombined and package flags and Mimosa will build all of the assets, optimize them into a single file, and then package the application for use outside of Mimosa. Go inside the created `dist` directory and execute `node app.js` and the app works the same.
 
     $ mimosa build -omrp
-
-
-
