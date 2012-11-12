@@ -1,0 +1,9 @@
+ul(ng-hide='!tweets.result.results.length')
+  li.row(ng-repeat='tweet in tweets.result.results')
+    .span1.thumbnail
+      img(ng-src='{{tweet.profile_image_url}}')
+    .span10
+      div
+        b(ng-bind='tweet.from_user_name')
+        a(ng-href='https://twitter.com/{{tweet.from_user}}', ng-bind='tweet.from_user | twitterfy', target='_blank')
+      div(ng-bind='tweet.text')

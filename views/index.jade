@@ -1,0 +1,89 @@
+doctype 5
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Angular Demo
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width')
+
+    link(rel='stylesheet', href='/stylesheets/vendor/bootstrap.css' + cachebust)
+    link(rel='stylesheet', href='/stylesheets/styles.css' + cachebust)
+
+    if reload
+      script(src='/socket.io/socket.io.js')
+      script(src='/javascripts/reload-client.js')
+
+    if optimize
+      script(src='/javascripts/main-built.js')
+    else
+      script(src='/javascripts/vendor/require.js', data-main='/javascripts/main.js')
+
+  body(ng-cloak='ng-cloak')
+    ng:view
+    .container
+      .hero-unit
+        h1
+          | Playing with&nbsp;
+          a(href='http://angularjs.org', target='_blank') AngularJS
+        p
+          | and also&nbsp;
+          a(href='http://requirejs.org/', target='_blank') RequireJS
+        p
+          | and also&nbsp;
+          a(href='https://github.com/dbashford/mimosa', target='_blank') Mimosa
+        p Compiles both Stylus and Less (Bootstrap) and CoffeeScript and packages app for non-Mimosa use.  3 lines of config.
+      .row
+        .span8
+          tabs
+            tab(data-tab-id='twitter', caption='Twitter')
+              section(ng-controller='twitter')
+                .alert.alert-info(ng-show='!searchTerm.length')
+                  h4.alert-heading Heads up!
+                  span Enter Twitter search criteria.
+                form.well.form-search(ng-submit='search(searchTerm)')
+                  input.input-medium.search-query(type='text', ng-model='searchTerm', autofocus='autofocus')
+                  button.btn(type='submit')
+                    i.icon-search
+                    | Search
+                include partials/tweets
+
+            tab(data-tab-id='gitHub', caption='GitHub')
+              section(ng-controller='gitHub')
+                .alert.alert-info(ng-show='!searchTerm.length')
+                  h4.alert-heading Heads up!
+                  span Enter GitHub search criteria.
+                form.well.form-search(ng-submit='search(searchTerm)')
+                  input.input-medium.search-query(type='text', ng-model='searchTerm')
+                  button.btn(type='submit')
+                    i.icon-search
+                    | Search
+                include partials/repos
+
+            tab(data-tab-id='people', caption='People')
+              .row
+                .span4
+                  section(ng-controller='people')
+                    .alert.alert-error(ng-show='!!error')
+                      h4.alert-heading(ng-bind='error.title')
+                      span(ng-bind='error.message')
+                    form.well.form-search(ng-submit='insertPerson(name)')
+                      input.input-medium.search-query(type='text', ng-model='name')
+                      button.btn(type='submit')
+                        i.icon-plus
+                        | Insert
+                      myinput(model='name', kind='text', caption='My Caption', placeholder='Enter something here', help-text='Help me out, bro!')
+                    include partials/people
+                .span4
+                  section(ng-controller='personDetails')
+                    | Age:
+                    span(ng-bind='person.result.age')
+        .span4
+          h2 Search History
+          section(ng-controller='searchHistory')
+            form.well.form-search
+              input.input-medium.search-query(type='text', placeholder='Type filter...', ng-model='query')
+              label(ng-bind-template='Displaying:  {{(searchHistory | filter:query).length}}')
+            ol(ng-hide='!searchHistory.length')
+              li(ng-repeat='item in searchHistory | filter:query | orderBy:\'timeStamp\':true', ng-bind-template='{{item.source}}/{{item.criteria}}')
+

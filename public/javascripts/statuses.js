@@ -1,0 +1,1 @@
+define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){"use strict";t.exports={200:"ok",401:"unauthorized",403:"forbidden",404:"foo"}}).call(this)})

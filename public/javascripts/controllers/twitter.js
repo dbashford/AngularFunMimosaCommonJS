@@ -1,0 +1,1 @@
+(function(){define(["c/controllers","services/twitter"],function(e){"use strict";return e.controller("twitter",["$scope","$rootScope","$location","twitter",function(e,t,n,r){return e.searchTerm="",e.tweets=r.tweets,e.search=function(e){return n.path("/twitter/"+e)},e.onRouteChange=function(t){return e.searchTerm=t.searchTerm,r.get(e.searchTerm)}}])})}).call(this)
