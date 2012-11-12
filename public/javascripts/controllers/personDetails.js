@@ -1,1 +1,0 @@
-define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){"use strict";var e;e=require("c/controllers"),require("services/people"),t.exports=e.controller("personDetails",["$scope","$rootScope","people",function(e,t,n){return e.person=n.person,e.onRouteChange=function(e){return n.getPerson(e.id)}}])}).call(this)})

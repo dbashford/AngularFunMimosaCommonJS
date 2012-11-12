@@ -1,1 +1,0 @@
-define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){"use strict";var e;e=require("services/services"),t.exports=e.factory("message",["$rootScope",function(e){var t,n;return t=function(t,n){return n.timeStamp=new Date,e.$broadcast(t,n)},n=function(t,n){return e.$on(t,n)},{publish:t,subscribe:n}}])}).call(this)})

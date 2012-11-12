@@ -1,1 +1,0 @@
-define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){t.exports={root:{hello:"hello"},"fr-fr":!0}}).call(this)})

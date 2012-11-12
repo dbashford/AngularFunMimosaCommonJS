@@ -1,1 +1,0 @@
-define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){"use strict";var e;e=require("c/controllers"),require("services/message"),t.exports=e.controller("searchHistory",["$scope","message",function(e,t){return e.searchHistory=[],t.subscribe("search",function(t,n){return e.searchHistory.push(n)})}])}).call(this)})

@@ -1,1 +1,0 @@
-define(function(require,e,t){var n=t.uri||"",r=n.substring(0,n.lastIndexOf("/")+1);(function(){"use strict";var e;e=require("filters/filters"),t.exports=e.filter("twitterfy",[function(){return function(e){return"@"+e}}])}).call(this)})
