@@ -1,7 +1,7 @@
 express = require 'express'
 engines = require 'consolidate'
 
-exports.startServer = (config) ->
+exports.startServer = (config, callback) ->
 
   nextId = 0
   people = [
@@ -56,4 +56,4 @@ exports.startServer = (config) ->
     current = person for person in people when parseInt(person.id, 10) is parseInt(id, 10)
     res.json current
 
-  server
+  callback server
