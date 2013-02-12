@@ -40,6 +40,6 @@ or
 
     $ mimosa watch -som
 
-Use the `biuld` command and the optimize, minify, removeCombined and package flags and Mimosa will build all of the assets, optimize them into a single file, and then package the application for use outside of Mimosa. Go inside the created `dist` directory and execute `node app.js` and the app works the same.
+Use the `build` command and the optimize, minify, and package flags and Mimosa will build all of the assets, optimize them into a single file, and then package the application for use outside of Mimosa. Go inside the created `dist` directory and execute `node app.js` and the app works the same.
 
-    $ mimosa build -omrp
+    $ mimosa build -omp
