@@ -30,29 +30,33 @@ app = angular.module 'app', [
 
 $('body').append('Localized hello ==> ' + hello.hello)
 
-app.config ['$routeProvider', ($routeProvider) ->
+
+$('body').append('Localized hello ==> ' + hello.hello)
+
+rp = ($routeProvider) ->
   $routeProvider
-  .when '/github/:searchTerm'
-    controller: 'gitHub'
-    reloadOnSearch: true
-    resolve:
-      changeTab: ($rootScope) ->
-        $rootScope.$broadcast 'changeTab#gitHub'
-  .when '/people/details/:id'
-    controller: 'personDetails'
-    reloadOnSearch: true
-    resolve:
-      changeTab: ($rootScope) ->
-        $rootScope.$broadcast 'changeTab#people'
-  .when '/twitter/:searchTerm'
-    controller: 'twitter'
-    reloadOnSearch: true
-    resolve:
-      changeTab: ($rootScope) ->
-        $rootScope.$broadcast 'changeTab#twitter'
-  .otherwise
-    redirectTo: '/github/dbashford'
-]
+    .when '/github/:searchTerm',
+      controller: 'gitHub'
+      reloadOnSearch: true
+      resolve:
+        changeTab: ($rootScope) ->
+          $rootScope.$broadcast 'changeTab#gitHub'
+    .when '/people/details/:id',
+      controller: 'personDetails'
+      reloadOnSearch: true
+      resolve:
+        changeTab: ($rootScope) ->
+          $rootScope.$broadcast 'changeTab#people'
+    .when '/twitter/:searchTerm',
+      controller: 'twitter'
+      reloadOnSearch: true
+      resolve:
+        changeTab: ($rootScope) ->
+          $rootScope.$broadcast 'changeTab#twitter'
+    .otherwise
+      redirectTo: '/github/dbashford'
+
+app.config ['$routeProvider', rp]
 
 app.run ['$rootScope', '$log', ($rootScope, $log) ->
   $rootScope.$on 'error:unauthorized', (event, response) ->

@@ -17,3 +17,4 @@ require
     'vendor/modernizr':
       exports: 'Modernizr'
   ['app'], (app) ->
+    console.log "app loaded"
