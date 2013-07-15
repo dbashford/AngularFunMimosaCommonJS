@@ -1,5 +1,5 @@
 {
-  "name": "Mimosa-AngularFun-CommonJS",
+  "name": "mimosa-angularfun-commonjs",
   "version": "0.0.1",
   "dependencies": {
     "consolidate": "~0.5.0",
