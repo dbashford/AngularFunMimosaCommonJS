@@ -1,0 +1,176 @@
+{
+  "shims": {
+    "/javascripts/main.js": {
+      "ang": {
+        "deps": [
+          "vendor/modernizr"
+        ],
+        "exports": "angular"
+      },
+      "vendor/angular-resource": [
+        "ang"
+      ],
+      "vendor/modernizr": {
+        "exports": "Modernizr"
+      }
+    }
+  },
+  "deps": {
+    "/javascripts/app.js": [
+      "ang",
+      "l18n!nls/hello",
+      "jquery",
+      "c/controllers",
+      "d/directives",
+      "filters/filters",
+      "vendor/angularResource",
+      "responseInterceptors/responseInterceptors",
+      "services/services",
+      "c/gitHub",
+      "c/people",
+      "c/personDetails",
+      "c/searchHistory",
+      "c/twitter",
+      "d/ngController",
+      "d/tab",
+      "d/tabs",
+      "filters/twitterfy",
+      "responseInterceptors/dispatcher"
+    ],
+    "/javascripts/controllers/controllers.js": [
+      "ang"
+    ],
+    "/javascripts/controllers/gitHub.js": [
+      "c/controllers",
+      "services/gitHub"
+    ],
+    "/javascripts/controllers/people.js": [
+      "c/controllers",
+      "services/people"
+    ],
+    "/javascripts/controllers/personDetails.js": [
+      "c/controllers",
+      "services/people"
+    ],
+    "/javascripts/controllers/searchHistory.js": [
+      "c/controllers",
+      "services/message"
+    ],
+    "/javascripts/controllers/twitter.js": [
+      "c/controllers",
+      "services/twitter"
+    ],
+    "/javascripts/directives/directives.js": [
+      "ang"
+    ],
+    "/javascripts/directives/ngController.js": [
+      "d/directives"
+    ],
+    "/javascripts/directives/tab.js": [
+      "d/directives",
+      "templates",
+      "d/tabs"
+    ],
+    "/javascripts/directives/tabs.js": [
+      "ang",
+      "d/directives",
+      "templates"
+    ],
+    "/javascripts/filters/filters.js": [
+      "ang"
+    ],
+    "/javascripts/filters/twitterfy.js": [
+      "filters/filters"
+    ],
+    "/javascripts/main.js": [
+      "app"
+    ],
+    "/javascripts/nls/fr-fr/hello.js": [],
+    "/javascripts/nls/hello.js": [],
+    "/javascripts/responseInterceptors/dispatcher.js": [
+      "responseInterceptors/responseInterceptors",
+      "statuses"
+    ],
+    "/javascripts/responseInterceptors/responseInterceptors.js": [
+      "ang"
+    ],
+    "/javascripts/services/gitHub.js": [
+      "ang",
+      "services/services",
+      "services/message",
+      "vendor/angularResource"
+    ],
+    "/javascripts/services/message.js": [
+      "services/services"
+    ],
+    "/javascripts/services/people.js": [
+      "ang",
+      "services/services",
+      "vendor/angularResource"
+    ],
+    "/javascripts/services/searchHistory.js": [
+      "services/services"
+    ],
+    "/javascripts/services/services.js": [
+      "ang"
+    ],
+    "/javascripts/services/twitter.js": [
+      "ang",
+      "services/services",
+      "services/message",
+      "vendor/angularResource"
+    ],
+    "/javascripts/statuses.js": [],
+    "/javascripts/templates.js": []
+  },
+  "aliases": {
+    "/javascripts/main.js": {
+      "c": "controllers",
+      "d": "directives",
+      "l18n": "vendor/l18n",
+      "jquery": "vendor/jquery",
+      "ang": "vendor/angular"
+    }
+  },
+  "mappings": {
+    "/javascripts/main.js": {
+      "*": {
+        "vendor/angularResource": "vendor/angular-resource"
+      }
+    }
+  },
+  "packages": {
+    "/javascripts/main.js": null
+  },
+  "originalConfig": {
+    "shim": {
+      "ang": {
+        "deps": [
+          "vendor/modernizr"
+        ],
+        "exports": "angular"
+      },
+      "vendor/angular-resource": [
+        "ang"
+      ],
+      "vendor/modernizr": {
+        "exports": "Modernizr"
+      }
+    },
+    "paths": {
+      "c": "controllers",
+      "d": "directives",
+      "l18n": "vendor/l18n",
+      "jquery": "vendor/jquery",
+      "ang": "vendor/angular"
+    },
+    "map": {
+      "*": {
+        "vendor/angularResource": "vendor/angular-resource"
+      }
+    }
+  },
+  "requireFiles": [
+    "/javascripts/main.js"
+  ]
+}
