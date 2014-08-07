@@ -1,5 +1,10 @@
 express = require 'express'
+bodyParser = require 'body-parser'
 engines = require 'consolidate'
+compression = require 'compression'
+favicon = require 'serve-favicon'
+cookieParser = require 'cookie-parser'
+errorHandler = require 'errorhandler'
 
 exports.startServer = (config, callback) ->
 
@@ -13,32 +18,38 @@ exports.startServer = (config, callback) ->
     (name for person in people when person.name is name).length is 0
 
   app = express()
-  server = app.listen config.server.port, ->
-     console.log "Express server listening on port %d in %s mode", config.server.port, app.settings.env
 
-  app.configure ->
-    app.set 'port', config.server.port
-    app.set 'views', config.server.views.path
-    app.engine config.server.views.extension, engines[config.server.views.compileWith]
-    app.set 'view engine', config.server.views.extension
-    app.use express.favicon()
-    app.use express.bodyParser()
-    app.use express.methodOverride()
-    app.use express.compress()
-    app.use app.router
-    app.use express.static(config.watch.compiledDir)
+  # setup views and port
+  app.set 'views', config.server.views.path
+  app.engine config.server.views.extension, engines[config.server.views.compileWith]
+  app.set 'view engine', config.server.views.extension
+  app.set 'port', process.env.PORT || config.server.port || 3000
 
-  app.configure 'development', ->
-    app.use express.errorHandler()
+  # middleware
+  app.use compression()
+  # uncomment and point path at favicon if you have one
+  # app.use favicon "path to fav icon"
+  app.use bodyParser.json()
+  app.use bodyParser.urlencoded {extended: true}
+  app.use cookieParser()
+  app.use express.static config.watch.compiledDir
+  if app.get('env') is 'development'
+    app.use errorHandler()
 
-  options =
+  routeOptions =
     reload:    config.liveReload.enabled
     optimize:  config.isOptimize ? false
     cachebust: if process.env.NODE_ENV isnt "production" then "?b=#{(new Date()).getTime()}" else ''
 
-  app.get '/', (req, res) -> res.render 'index', options
-  app.get '/people', (req, res) -> res.json people
-  app.post '/people', (req, res) ->
+  router = express.Router()
+
+  router.get '/', (req, res) ->
+    res.render 'index', routeOptions
+
+  router.get '/people', (req, res) ->
+    res.json people
+
+  router.post '/people', (req, res) ->
     name = req.body.name
     message =
       "title": "Duplicate!"
@@ -51,9 +62,15 @@ exports.startServer = (config, callback) ->
     people.push person
     res.json person
 
-  app.get '/people/details/:id', (req, res) ->
+  router.get '/people/details/:id', (req, res) ->
     id = req.params.id
     current = person for person in people when parseInt(person.id, 10) is parseInt(id, 10)
     res.json current
+
+  app.use '/', router
+
+    # start it up
+  server = app.listen app.get('port'), ->
+    console.log 'Express server listening on port ' + app.get('port')
 
   callback server

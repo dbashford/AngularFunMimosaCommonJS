@@ -17,6 +17,9 @@
   },
   "deps": {
     "/javascripts/app.js": [
+      "require",
+      "exports",
+      "module",
       "ang",
       "l18n!nls/hello",
       "jquery",
@@ -38,21 +41,36 @@
       "responseInterceptors/dispatcher"
     ],
     "/javascripts/controllers/controllers.js": [
+      "require",
+      "exports",
+      "module",
       "ang"
     ],
     "/javascripts/controllers/gitHub.js": [
+      "require",
+      "exports",
+      "module",
       "c/controllers",
       "services/gitHub"
     ],
     "/javascripts/controllers/people.js": [
+      "require",
+      "exports",
+      "module",
       "c/controllers",
       "services/people"
     ],
     "/javascripts/controllers/personDetails.js": [
+      "require",
+      "exports",
+      "module",
       "c/controllers",
       "services/people"
     ],
     "/javascripts/controllers/searchHistory.js": [
+      "require",
+      "exports",
+      "module",
       "c/controllers",
       "services/message"
     ],
@@ -61,66 +79,120 @@
       "services/twitter"
     ],
     "/javascripts/directives/directives.js": [
+      "require",
+      "exports",
+      "module",
       "ang"
     ],
     "/javascripts/directives/ngController.js": [
+      "require",
+      "exports",
+      "module",
       "d/directives"
     ],
     "/javascripts/directives/tab.js": [
+      "require",
+      "exports",
+      "module",
       "d/directives",
       "templates",
       "d/tabs"
     ],
     "/javascripts/directives/tabs.js": [
+      "require",
+      "exports",
+      "module",
       "ang",
       "d/directives",
       "templates"
     ],
     "/javascripts/filters/filters.js": [
+      "require",
+      "exports",
+      "module",
       "ang"
     ],
     "/javascripts/filters/twitterfy.js": [
+      "require",
+      "exports",
+      "module",
       "filters/filters"
     ],
     "/javascripts/main.js": [
       "app"
     ],
-    "/javascripts/nls/fr-fr/hello.js": [],
-    "/javascripts/nls/hello.js": [],
+    "/javascripts/nls/fr-fr/hello.js": [
+      "require",
+      "exports",
+      "module"
+    ],
+    "/javascripts/nls/hello.js": [
+      "require",
+      "exports",
+      "module"
+    ],
     "/javascripts/responseInterceptors/dispatcher.js": [
+      "require",
+      "exports",
+      "module",
       "responseInterceptors/responseInterceptors",
       "statuses"
     ],
     "/javascripts/responseInterceptors/responseInterceptors.js": [
+      "require",
+      "exports",
+      "module",
       "ang"
     ],
     "/javascripts/services/gitHub.js": [
+      "require",
+      "exports",
+      "module",
       "ang",
       "services/services",
       "services/message",
       "vendor/angularResource"
     ],
     "/javascripts/services/message.js": [
+      "require",
+      "exports",
+      "module",
       "services/services"
     ],
     "/javascripts/services/people.js": [
+      "require",
+      "exports",
+      "module",
       "ang",
       "services/services",
       "vendor/angularResource"
     ],
     "/javascripts/services/searchHistory.js": [
+      "require",
+      "exports",
+      "module",
       "services/services"
     ],
     "/javascripts/services/services.js": [
+      "require",
+      "exports",
+      "module",
       "ang"
     ],
     "/javascripts/services/twitter.js": [
+      "require",
+      "exports",
+      "module",
       "ang",
       "services/services",
       "services/message",
       "vendor/angularResource"
     ],
-    "/javascripts/statuses.js": [],
+    "/javascripts/statuses.js": [
+      "require",
+      "exports",
+      "module"
+    ],
     "/javascripts/templates.js": []
   },
   "aliases": {
